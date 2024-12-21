@@ -7,14 +7,14 @@ export default function LandingPage() {
       <h1 className="flex gap-2 items-center">
         <PersonStandingIcon size={50} className="text-red-500" /> Chama aqui!
       </h1>
-      <p>O melhor de todos!</p>
+      <p>A melhor forma de gerenciar o seu negócio - la ele</p>
       <div className="flex gap-2 items-center">
         {' '}
-        <Button asChild>
+        <Button variant={'default'} asChild>
           <Link href="/login">Entrar</Link>
         </Button>{' '}
         <small>ou</small>
-        <Button variant={'outline'}>
+        <Button asChild variant={'outline'}>
           <Link href="/cadastro">Registrar-se</Link>
         </Button>
       </div>
