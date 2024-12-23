@@ -38,6 +38,10 @@ const formSchema = z
     accountType: z.enum(['personal', 'company']),
     companyName: z.string().optional(),
     numberOfEmployees: z.coerce.number().optional(), // coerce pq todos os campos são strings por padrão
+    dob: z.date().refine((date) => {
+      // customização par um campo específico pode ser feita com refine (true - mostrar erro, false - não mostrar erro)
+      return new Date().getFullYear() - date.getFullYear() >= 18;
+    }, 'Você deve ter mais de 18 anos!'),
   })
   .superRefine((data, ctx) => {
     if (data.accountType === 'company' && !data.companyName) {
