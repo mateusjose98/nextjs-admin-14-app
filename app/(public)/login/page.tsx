@@ -90,7 +90,7 @@ export default function LoginPage() {
         <CardFooter className="flex justify-between">
           <small>Não tem conta?</small>
           <Button asChild variant={'outline'} size={'sm'}>
-            <Link href="/cadastro">Cadastro</Link>
+            <Link href="/sign-up">Cadastro</Link>
           </Button>
         </CardFooter>
       </Card>
