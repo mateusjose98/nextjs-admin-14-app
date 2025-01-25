@@ -1,5 +1,7 @@
 ## NextJS 14 App
 
+### Run
+
 ```bash
 npm run dev
 ```
@@ -18,3 +20,7 @@ npm run dev
 Build: docker build -t <image_name> .
 Run: docker run -p 3000:3000 <image_name>
 ```
+
+### Tips
+
+Add a new component: `npx shadcn-ui@0.8.0 add popover`

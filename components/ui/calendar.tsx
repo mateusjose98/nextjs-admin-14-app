@@ -102,19 +102,21 @@ function Calendar({
             },
           );
 
+          function onChangeDropDown(value: string): void {
+            if (dropdownProps.name === 'months') {
+              const newDate = new Date(currentMonth);
+              newDate.setMonth(parseInt(value));
+              goToMonth(newDate);
+            } else if (dropdownProps.name === 'years') {
+              const newDate = new Date(currentMonth);
+              newDate.setFullYear(parseInt(value));
+              goToMonth(newDate);
+            }
+          }
+
           return (
             <Select
-              onValueChange={(newValue) => {
-                if (dropdownProps.name === 'months') {
-                  const newDate = new Date(currentMonth);
-                  newDate.setMonth(parseInt(newValue));
-                  goToMonth(newDate);
-                } else if (dropdownProps.name === 'years') {
-                  const newDate = new Date(currentMonth);
-                  newDate.setFullYear(parseInt(newValue));
-                  goToMonth(newDate);
-                }
-              }}
+              onValueChange={onChangeDropDown}
               value={dropdownProps.value?.toString()}
             >
               <SelectTrigger>{caption}</SelectTrigger>
