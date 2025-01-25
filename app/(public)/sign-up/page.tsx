@@ -1,6 +1,8 @@
 'use client';
 
 import { Button } from '@/components/ui/button';
+import { Calendar } from '@/components/ui/calendar';
+import { ptBR } from 'date-fns/locale';
 import {
   Card,
   CardContent,
@@ -20,6 +22,11 @@ import {
 } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
 import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from '@/components/ui/popover';
+import {
   Select,
   SelectContent,
   SelectItem,
@@ -27,10 +34,11 @@ import {
   SelectValue,
 } from '@/components/ui/select';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { PersonStanding } from 'lucide-react';
+import { CalendarIcon, PersonStanding } from 'lucide-react';
 import Link from 'next/link';
 import { useForm } from 'react-hook-form';
 import * as z from 'zod';
+import { format } from 'date-fns';
 
 const formSchema = z
   .object({
@@ -158,6 +166,50 @@ export default function SignUpPage() {
                   />
                 </>
               )}
+
+              <FormField
+                control={form.control}
+                name="dob"
+                render={({ field }) => (
+                  <FormItem className="flex flex-col mb-4 pt-2">
+                    <FormLabel>Data</FormLabel>
+                    <Popover>
+                      <PopoverTrigger asChild>
+                        <FormControl>
+                          <Button
+                            variant={'outline'}
+                            className="normal-case flex justify-between pr-1"
+                          >
+                            {!!field.value ? (
+                              field.value.toLocaleDateString()
+                            ) : (
+                              <span> Quando nasceu?</span>
+                            )}
+                            <CalendarIcon size={20} />
+                          </Button>
+                        </FormControl>
+                      </PopoverTrigger>
+                      <PopoverContent align="start" className="w-auto p-0">
+                        <Calendar
+                          mode="single"
+                          defaultMonth={field.value}
+                          selected={field.value}
+                          onSelect={field.onChange}
+                          fixedWeeks={true}
+                          weekStartsOn={1}
+                          fromYear={new Date().getFullYear() - 150}
+                          toDate={new Date()}
+                          locale={ptBR}
+                          captionLayout="dropdown-buttons"
+                          // disabled={(date) => date > new Date()} exemplo para desabilitar quaisquer datas
+                        />
+                      </PopoverContent>
+                    </Popover>
+
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
 
               <Button type="submit">Cadastrar</Button>
             </form>
