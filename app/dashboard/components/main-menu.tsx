@@ -2,31 +2,47 @@ import { Avatar, AvatarFallback } from '@/components/ui/avatar';
 import MenuItem from './menu-item';
 import MenuTitle from './menu-title';
 import Link from 'next/link';
-
+import {
+  Bolt,
+  House,
+  PersonStanding,
+  Search,
+  ShieldAlert,
+  UserRound,
+} from 'lucide-react';
 export default function MainMenu() {
   return (
-    <nav className="md:bg-muted overflow-auto p-4 flex flex-col">
-      <header className="hidden md:block border-b dark:border-b-black border-b-zinc-300 pb-4">
+    <>
+      {' '}
+      <header className="hidden md:block border-b dark:border-b-black border-b-zinc-300 p-4">
         <MenuTitle />
       </header>
-      <ul className="py-4 grow">
-        <MenuItem href="/dashboard">Dashboard</MenuItem>
-        <MenuItem href="/consultas">Consultas</MenuItem>
-        <MenuItem href="/avisos">Avisos</MenuItem>
-        <MenuItem href="/conta">Conta</MenuItem>
-        <MenuItem href="/configuracao">Configuração</MenuItem>
-      </ul>
-      <footer className="flex gap-2 items-center">
-        <Avatar>
-          <AvatarFallback className="bg-pink-300 dark:bg-pink-800">
-            JM
-          </AvatarFallback>
-        </Avatar>
-        <Link href="/" className="hover:underline">
-          Logout
-        </Link>
-        {/* <LightDarkToggle className="ml-auto" /> */}
-      </footer>
-    </nav>
+      <div className="flex flex-col flex-wrap justify-between h-full ">
+        <div>
+          <ul className="py-4 grow">
+            <MenuItem href="/dashboard" icon={<House size={15} />}>
+              Dashboard
+            </MenuItem>
+            <MenuItem href="/dashboard/consulta" icon={<Search size={15} />}>
+              Documento Fiscal
+            </MenuItem>
+            <MenuItem href="/dashboard/avisos" icon={<ShieldAlert size={15} />}>
+              Avisos
+            </MenuItem>
+            <MenuItem href="/dashboard/conta" icon={<UserRound size={15} />}>
+              Conta
+            </MenuItem>
+            <MenuItem href="/dashboard/configuracao" icon={<Bolt size={15} />}>
+              Configuração
+            </MenuItem>
+          </ul>
+        </div>
+        <div className="mt-auto flex justify-center p-4 bg-slate-300">
+          <small>
+            <i>Empresa/Estado/Endereço</i>
+          </small>
+        </div>
+      </div>
+    </>
   );
 }
