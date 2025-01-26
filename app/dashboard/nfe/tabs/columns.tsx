@@ -12,6 +12,7 @@ export type Employee = {
   firstName: string;
   lastName: string;
   teamName: string;
+  dtEmiss: string;
   isTeamLeader: boolean;
   avatar?: string;
 };
@@ -27,14 +28,6 @@ export const columns: ColumnDef<Employee>[] = [
 
       return (
         <Avatar>
-          {!!avatar && (
-            <Image
-              height={40}
-              width={40}
-              src={avatar}
-              alt={`${firstName} ${lastName} avatar`}
-            />
-          )}
           <AvatarFallback className="uppercase">
             {firstName[0]}
             {lastName[0]}
@@ -45,15 +38,19 @@ export const columns: ColumnDef<Employee>[] = [
   },
   {
     accessorKey: 'firstName',
-    header: 'First name',
+    header: 'Número',
   },
   {
     accessorKey: 'lastName',
-    header: 'Last name',
+    header: 'Protocolo',
   },
   {
     accessorKey: 'teamName',
-    header: 'Team',
+    header: 'CNPJ emitente',
+  },
+  {
+    accessorKey: 'dtEmiss',
+    header: 'Data de emissão',
   },
   {
     accessorKey: 'isTeamLeader',

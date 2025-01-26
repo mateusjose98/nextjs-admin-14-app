@@ -38,6 +38,7 @@ const employees: Employee[] = [
     teamName: 'alpha',
     isTeamLeader: true,
     avatar: '/images/cm.jpg',
+    dtEmiss: '01/01/2021',
   },
   {
     id: 2,
@@ -45,6 +46,7 @@ const employees: Employee[] = [
     lastName: 'Phillips',
     teamName: 'alpha',
     isTeamLeader: false,
+    dtEmiss: '01/01/2021',
   },
   {
     id: 3,
@@ -52,6 +54,7 @@ const employees: Employee[] = [
     lastName: 'Fuentes',
     teamName: 'alpha',
     isTeamLeader: false,
+    dtEmiss: '01/01/2021',
   },
   {
     id: 4,
@@ -60,6 +63,7 @@ const employees: Employee[] = [
     teamName: 'canary',
     isTeamLeader: true,
     avatar: '/images/tf.jpg',
+    dtEmiss: '01/01/2021',
   },
   {
     id: 5,
@@ -67,6 +71,7 @@ const employees: Employee[] = [
     lastName: 'Johnson',
     teamName: 'canary',
     isTeamLeader: false,
+    dtEmiss: '01/01/2021',
   },
   {
     id: 6,
@@ -74,6 +79,7 @@ const employees: Employee[] = [
     lastName: 'Jones',
     teamName: 'canary',
     isTeamLeader: false,
+    dtEmiss: '01/01/2021',
   },
   {
     id: 7,
@@ -81,6 +87,8 @@ const employees: Employee[] = [
     lastName: 'Adams',
     teamName: 'delta',
     isTeamLeader: true,
+    dtEmiss: '01/01/2021',
+    avatar: '/images/aa.jpg',
   },
   {
     id: 8,
@@ -89,6 +97,7 @@ const employees: Employee[] = [
     teamName: 'delta',
     isTeamLeader: false,
     avatar: '/images/rl.jpg',
+    dtEmiss: '01/01/2021',
   },
   {
     id: 9,
@@ -96,6 +105,7 @@ const employees: Employee[] = [
     lastName: 'Jones',
     teamName: 'delta',
     isTeamLeader: false,
+    dtEmiss: '01/01/2021',
   },
 ];
 
@@ -113,44 +123,6 @@ export default function NfeTab() {
   };
   return (
     <div>
-      <Card className="mb-3">
-        <CardHeader>
-          <CardTitle>Nota Fiscal Eletrônica</CardTitle>
-        </CardHeader>
-        <CardContent>
-          <CardDescription>
-            <p>
-              A Nota Fiscal Eletrônica (NF-e) é um documento digital que tem
-              como objetivo registrar a transferência de posse de uma mercadoria
-              ou a prestação de um serviço.
-            </p>
-            <p>
-              A NF-e é emitida e armazenada eletronicamente, e é utilizada para
-              documentar operações comerciais de venda de produtos ou serviços.
-            </p>
-          </CardDescription>
-
-          <CardFooter>
-            <a
-              href="https://www.nfe.fazenda.gov.br/portal"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-blue-500 hover:underline"
-            >
-              Saiba mais
-            </a>
-
-            <a
-              href="https://www.nfe.fazenda.gov.br/portal"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-blue-500 hover:underline"
-            >
-              Acessar
-            </a>
-          </CardFooter>
-        </CardContent>
-      </Card>
       <Card className="mb-3">
         <CardHeader>
           <CardTitle>Consulte a NF-e</CardTitle>
