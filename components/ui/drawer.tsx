@@ -2,21 +2,24 @@
 
 import * as React from 'react';
 import { Drawer as DrawerPrimitive } from 'vaul';
-
 import { cn } from '@/lib/utils';
 
+// Corrigido: Garante que onClose seja sempre uma função válida
 export const DrawerContext = React.createContext<{
   direction?: 'top' | 'bottom' | 'left' | 'right';
-  onClose?: () => void;
-}>({});
+  onClose: () => void;
+}>({
+  onClose: () => {}, // Evita erro ao chamar onClose se não estiver definido
+});
 
 const Drawer = ({
   shouldScaleBackground = true,
+  onClose = () => {}, // Corrigido: Define um valor padrão para evitar undefined
   ...props
-}: React.ComponentProps<typeof DrawerPrimitive.Root>) => (
-  <DrawerContext.Provider
-    value={{ direction: props.direction, onClose: props.onClose }}
-  >
+}: React.ComponentProps<typeof DrawerPrimitive.Root> & {
+  onClose?: () => void;
+}) => (
+  <DrawerContext.Provider value={{ direction: props.direction, onClose }}>
     <DrawerPrimitive.Root
       shouldScaleBackground={shouldScaleBackground}
       {...props}
@@ -26,9 +29,7 @@ const Drawer = ({
 Drawer.displayName = 'Drawer';
 
 const DrawerTrigger = DrawerPrimitive.Trigger;
-
 const DrawerPortal = DrawerPrimitive.Portal;
-
 const DrawerClose = DrawerPrimitive.Close;
 
 const DrawerOverlay = React.forwardRef<
