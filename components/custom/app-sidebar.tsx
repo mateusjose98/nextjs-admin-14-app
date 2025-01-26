@@ -21,7 +21,7 @@ import {
   SidebarHeader,
   SidebarRail,
 } from '@/components/ui/sidebar';
-import { TeamSwitcher } from './team-switcher';
+import { Logo } from './team-switcher';
 import { NavMain } from './nav-main';
 import { NavProjects } from './nav-project';
 import { NavUser } from './nav-user';
@@ -29,9 +29,9 @@ import { NavUser } from './nav-user';
 // This is sample data.
 const data = {
   user: {
-    name: 'shadcn',
-    email: 'm@example.com',
-    avatar: '/avatars/shadcn.jpg',
+    name: 'José Mateus',
+    email: 'email@email.com',
+    avatar: '',
   },
   teams: [
     {
@@ -52,21 +52,21 @@ const data = {
   ],
   navMain: [
     {
-      title: 'Playground',
+      title: 'Documento fiscal',
       url: '#',
       icon: SquareTerminal,
       isActive: true,
       items: [
         {
-          title: 'History',
-          url: '#',
+          title: 'NF-e',
+          url: '/dashboard/nfe',
         },
         {
-          title: 'Starred',
-          url: '#',
+          title: 'CT-e',
+          url: '/dashboard/cte',
         },
         {
-          title: 'Settings',
+          title: 'BP-e',
           url: '#',
         },
       ],
@@ -160,7 +160,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   return (
     <Sidebar collapsible="icon" {...props}>
       <SidebarHeader>
-        <TeamSwitcher teams={data.teams} />
+        <Logo />
       </SidebarHeader>
       <SidebarContent>
         <NavMain items={data.navMain} />
