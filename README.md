@@ -13,6 +13,8 @@ npm run dev
 2. Register/Validation
    ![alt text](image-1.png)
    ![alt text](image-2.png)
+3. Consultas (preview)
+   ![alt text](image-3.png)
 
 ### Docker
 
